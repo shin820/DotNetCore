@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  inmemoryidentityprovider:
+    image: inmemoryidentityprovider
+    build:
+      context: ./InMemoryIdentityProvider
+      dockerfile: Dockerfile
+
+  webapi:
+    image: webapi
+    build:
+      context: ./WebApi
+      dockerfile: Dockerfile
