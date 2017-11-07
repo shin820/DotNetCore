@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csproj", "{E050197A-12F8-4831-9905-7EEEB873142C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientCredentials", "ClientCredentials", "{7972009F-64C3-42AA-9B68-A288ACFDC5D6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,11 +36,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{3F146A59-F2CA-475A-993B-821AA2385674} = {7972009F-64C3-42AA-9B68-A288ACFDC5D6}
-		{F41AD85F-2644-41FB-AC1C-14841DC86E3C} = {7972009F-64C3-42AA-9B68-A288ACFDC5D6}
-		{E050197A-12F8-4831-9905-7EEEB873142C} = {7972009F-64C3-42AA-9B68-A288ACFDC5D6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1647C97A-F9C2-4962-9E75-4F4A2D250072}
