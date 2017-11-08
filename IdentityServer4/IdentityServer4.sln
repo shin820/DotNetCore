@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcClient", "MvcClient\MvcClient.csproj", "{9BD70EFB-798A-42D4-923B-84E44FE6366A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityProvider", "IdentityProvider\IdentityProvider.csproj", "{42ED22B7-ADD8-45C7-B387-C2AEF0547654}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9BD70EFB-798A-42D4-923B-84E44FE6366A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD70EFB-798A-42D4-923B-84E44FE6366A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD70EFB-798A-42D4-923B-84E44FE6366A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42ED22B7-ADD8-45C7-B387-C2AEF0547654}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42ED22B7-ADD8-45C7-B387-C2AEF0547654}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42ED22B7-ADD8-45C7-B387-C2AEF0547654}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42ED22B7-ADD8-45C7-B387-C2AEF0547654}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,3 +18,9 @@ services:
     build:
       context: ./MvcClient
       dockerfile: Dockerfile
+
+  identityprovider:
+    image: identityprovider
+    build:
+      context: ./IdentityProvider
+      dockerfile: Dockerfile
