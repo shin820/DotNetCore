@@ -17,6 +17,10 @@ namespace InMemoryIdentityProvider
         {
             services.AddMvc();
 
+            //services.AddIdentityServer(options =>
+            //    {
+            //        options.UserInteraction.LoginUrl = "account/login";
+            //    })
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())

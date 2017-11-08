@@ -1,4 +1,5 @@
-﻿using IdentityServer4;
+﻿using IdentityModel;
+using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System;
@@ -15,7 +16,56 @@ namespace InMemoryIdentityProvider
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1", "My API")
+                // simple API with a single scope (in this case the scope name is the same as the api name)
+                new ApiResource("api1", "My API"),
+
+                // expanded version if more control is needed
+                new ApiResource
+                {
+                    Name = "api2",
+
+                    // secret for using introspection endpoint
+                    ApiSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+
+                    // include the following using claims in access token (in addition to subject id)
+                    UserClaims = { JwtClaimTypes.Name, JwtClaimTypes.Email },
+
+                    // this API defines two scopes
+                    Scopes =
+                    {
+                        new Scope()
+                        {
+                            Name = "api2.full_access",
+                            DisplayName = "Full access to API 2",
+                        },
+                        new Scope
+                        {
+                            Name = "api2.read_only",
+                            DisplayName = "Read only access to API 2"
+                        }
+                    }
+                }
+            };
+        }
+
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            var customProfile = new IdentityResource(
+                name: "custom.profile",
+                displayName: "Custom Profile",
+                claimTypes: new[] { "name", "email", "status" });
+
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Email(),
+                new IdentityResources.Profile(),
+                new IdentityResources.Phone(),
+                new IdentityResources.Address(),
+                customProfile
             };
         }
 
@@ -39,6 +89,14 @@ namespace InMemoryIdentityProvider
 
                     // scopes that client has access to
                     AllowedScopes = { "api1" }
+                },
+                new Client
+                {
+                    ClientId = "service.client",
+                    ClientSecrets = { new Secret("secret".Sha256()) },
+
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedScopes = { "api1", "api2.read_only" }
                 },
 
                 // resource owner password grant client
@@ -109,15 +167,6 @@ namespace InMemoryIdentityProvider
                         new Claim("website", "https://bob.com")
                     }
                 }
-            };
-        }
-
-        public static IEnumerable<IdentityResource> GetIdentityResources()
-        {
-            return new List<IdentityResource>
-            {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
             };
         }
     }
