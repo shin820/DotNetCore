@@ -12,3 +12,9 @@ services:
     build:
       context: ./WebApi
       dockerfile: Dockerfile
+
+  mvcclient:
+    image: mvcclient
+    build:
+      context: ./MvcClient
+      dockerfile: Dockerfile
