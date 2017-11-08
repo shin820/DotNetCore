@@ -1,4 +1,5 @@
-﻿@*
+﻿@using Microsoft.AspNetCore.Authentication
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -10,3 +11,12 @@
         <dd>@claim.Value</dd>
     }
 </dl>
+
+<dt>access token</dt>
+<dd>@await ViewContext.HttpContext.GetTokenAsync("access_token")</dd>
+
+<dt>use access token</dt>
+<dd>@Html.ActionLink("Call Api Using User Access Token", "CallApiUsingUserAccessToken")</dd>
+
+<dt>refresh token</dt>
+<dd>@await ViewContext.HttpContext.GetTokenAsync("refresh_token")</dd>
